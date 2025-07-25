@@ -1,0 +1,92 @@
+import { FaUpload, FaChartLine, FaCogs } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const features = [
+  {
+    icon: <FaUpload size={40} />,
+    title: "Seamless Data Upload",
+    desc: "Upload Excel files effortlessly with intelligent parsing and real-time progress.",
+    color: "text-gray-300 ring-gray-400/30",
+  },
+  {
+    icon: <FaChartLine size={40} />,
+    title: "Dynamic Visualizations",
+    desc: "Visualize your data with animated, interactive charts powered by smart templates.",
+    color: "text-gray-300 ring-gray-400/30",
+  },
+  {
+    icon: <FaCogs size={40} />,
+    title: "Insightful Analytics",
+    desc: "Get automated insights with customizable metrics & AI-driven suggestions.",
+    color: "text-gray-300 ring-gray-400/30",
+  },
+];
+
+// Variants for animation
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 },
+};
+
+export default function FeatureSection() {
+  return (
+    <motion.section
+      className="relative z-10 py-16 px-4 sm:px-6 md:px-12 text-white bg-gradient-to-b from-transparent via-black/20 to-black/70"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      role="region"
+      aria-label="Excel Analytics Premium Features"
+    >
+      {/* Section Heading */}
+      <motion.div
+        className="text-center mb-12 sm:mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+          Premium Features
+        </h2>
+        <p className="mt-3 sm:mt-4 text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+          Elevate your data experience with advanced tools designed to simplify, visualize, and automate your workflow.
+        </p>
+      </motion.div>
+
+      {/* Feature Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+        {features.map(({ icon, title, desc, color }, i) => (
+          <motion.div
+            key={i}
+            variants={itemVariants}
+            className="relative p-4 sm:p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl text-center shadow-xl hover:scale-[1.03] hover:shadow-2xl transition-all duration-300 group overflow-hidden"
+          >
+            {/* Icon Glow */}
+            <div
+              className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center rounded-full ring-4 bg-white/10 backdrop-blur-md shadow-inner animate-pulse group-hover:animate-pulse ${color}`}
+            >
+              <div className={`${color}`}>{icon}</div>
+            </div>
+
+            {/* Title & Description */}
+            <h3 className="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">{title}</h3>
+            <p className="text-gray-400 text-xs sm:text-sm">{desc}</p>
+
+            {/* Ring effect on hover */}
+            <div className="absolute inset-0 rounded-3xl group-hover:ring-2 group-hover:ring-offset-2 group-hover:ring-white/20 transition-all" />
+          </motion.div>
+        ))}
+      </div>
+    </motion.section>
+  );
+}
