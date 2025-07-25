@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: window.location.hostname === 'localhost'
-    ? 'https://excelanalytics-ciws.onrender.com',
-    : 'http://localhost:5001/api' // ✅ hardcoded backend port
+  baseURL: 'https://excelanalytics-ciws.onrender.com',
   withCredentials: true,
 });
 
