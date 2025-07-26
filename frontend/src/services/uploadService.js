@@ -1,4 +1,3 @@
-// src/services/uploadService.js
 import api from './api';
 
 const getUploadHistory = async () => {
