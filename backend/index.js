@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 connectDB();
 
-app.use("/", authRoutes);
-app.use("/", uploadRoutes);
-app.use("/", adminRoutes);
+app.use("/api", authRoutes);
+app.use("/api", uploadRoutes);
+app.use("/api", adminRoutes);
 
 const aiRoutes = require("./routes/aiRoutes.js");
 app.use("/", aiRoutes);
