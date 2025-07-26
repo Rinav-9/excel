@@ -21,12 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 connectDB();
 
-app.use("/api", authRoutes);
-app.use("/api", uploadRoutes);
-app.use("/api", adminRoutes);
+app.use("/", authRoutes);
+app.use("/", uploadRoutes);
+app.use("/", adminRoutes);
 
 const aiRoutes = require("./routes/aiRoutes.js");
-app.use("/api", aiRoutes);
+app.use("/", aiRoutes);
 
 require('dotenv').config();
 
