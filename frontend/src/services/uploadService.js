@@ -1,4 +1,15 @@
+// src/services/uploadService.js
 import api from './api';
+
+const getUploadHistory = async () => {
+  try {
+    const response = await api.get('/upload/history'); // withCredentials works here
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch upload history:', error);
+    throw error;
+  }
+};
 
 const deleteUpload = async (uploadId) => {
   try {
@@ -11,5 +22,6 @@ const deleteUpload = async (uploadId) => {
 };
 
 export default {
+  getUploadHistory,
   deleteUpload,
 };
