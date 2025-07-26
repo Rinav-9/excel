@@ -22,7 +22,7 @@ app.use(cookieParser());
 connectDB();
 
 app.use("/api", authRoutes);
-app.use("/", uploadRoutes);
+app.use("/upload", uploadRoutes);
 app.use("/api", adminRoutes);
 
 const aiRoutes = require("./routes/aiRoutes.js");
