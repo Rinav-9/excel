@@ -26,7 +26,7 @@ app.use("/api", uploadRoutes);
 app.use("/api", adminRoutes);
 
 const aiRoutes = require("./routes/aiRoutes.js");
-app.use("/", aiRoutes);
+app.use("/api", aiRoutes);
 
 require('dotenv').config();
 
