@@ -4,7 +4,7 @@ const authController = require("../controllers/authController.js");
 const authMiddleware = require("../middleware/authMiddleware.js");
 
 router.post("/auth/signup", authController.register);
-router.post("/https://excelanalytics-ciws.onrender.com/api/auth/login", authController.login);
+router.post("/auth/login", authController.login);
 router.get("/auth/profile", authMiddleware, authController.profile);
 router.put("/auth/profile", authMiddleware, authController.updateProfile);
 router.post("/auth/logout", authController.logout);
