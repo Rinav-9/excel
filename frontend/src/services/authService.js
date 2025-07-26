@@ -1,11 +1,7 @@
 import api from './api';
 
 const signup = (data) => api.post('/api/auth/signup', data);
-const login = (data) =>
-  api.post('/api/auth/login', data, {
-    headers: { 'Content-Type': 'application/json' },
-    withCredentials: true
-  });
+const login = (data) => api.post('/api/auth/login', data, { headers: { 'Content-Type': 'application/json' } });
 const sendOtp = (email) => api.post('/api/auth/send-otp', { email });
 const verifyOtp = (email, otp) => api.post('/api/auth/verify-otp', { email, otp });
 const forgotPassword = (email) => api.post('/api/auth/forgot-password', { email });
